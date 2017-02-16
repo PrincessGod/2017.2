@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPlanet", "R.Earth\RPlanet.csproj", "{1C560F6A-EF21-4413-B3FB-827ED9A71A1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPlanet.Engine", "R.Earth.Engine\RPlanet.Engine.csproj", "{6D87C141-50CA-46AE-B60F-08875486DA67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPlanet.SurfaceExt", "R.Earth.Surface\RPlanet.SurfaceExt.csproj", "{93803BF8-33F8-491B-BA30-88547BFA287F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.Planet.Plugins.QuadTiles", "R.Planet.Plugins.QuadTiles\R.Planet.Plugins.QuadTiles.csproj", "{86669B98-5A04-464B-B90E-980931FFFD62}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C560F6A-EF21-4413-B3FB-827ED9A71A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C560F6A-EF21-4413-B3FB-827ED9A71A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C560F6A-EF21-4413-B3FB-827ED9A71A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C560F6A-EF21-4413-B3FB-827ED9A71A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D87C141-50CA-46AE-B60F-08875486DA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D87C141-50CA-46AE-B60F-08875486DA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D87C141-50CA-46AE-B60F-08875486DA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D87C141-50CA-46AE-B60F-08875486DA67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93803BF8-33F8-491B-BA30-88547BFA287F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93803BF8-33F8-491B-BA30-88547BFA287F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93803BF8-33F8-491B-BA30-88547BFA287F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93803BF8-33F8-491B-BA30-88547BFA287F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86669B98-5A04-464B-B90E-980931FFFD62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86669B98-5A04-464B-B90E-980931FFFD62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86669B98-5A04-464B-B90E-980931FFFD62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86669B98-5A04-464B-B90E-980931FFFD62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

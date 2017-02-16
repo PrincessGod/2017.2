@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D87C141-50CA-46AE-B60F-08875486DA67}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>R.Earth</RootNamespace>
+    <AssemblyName>R.Earth.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2909.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\EarthSetting.cs" />
+    <Compile Include="Config\SettingBase.cs" />
+    <Compile Include="Config\WorldSetting.cs" />
+    <Compile Include="Core\DrawArgs.cs" />
+    <Compile Include="Core\TechDemoPlugin.cs" />
+    <Compile Include="Core\BoundingBox.cs" />
+    <Compile Include="Core\BoundingSphere.cs" />
+    <Compile Include="Frustum\CameraBase.cs" />
+    <Compile Include="Frustum\Frustum.cs" />
+    <Compile Include="Frustum\MomentumCamera.cs" />
+    <Compile Include="Frustum\WorldCamera.cs" />
+    <Compile Include="Core\GeoTexture.cs" />
+    <Compile Include="Frustum\Angle.cs" />
+    <Compile Include="Frustum\CameraMode.cs" />
+    <Compile Include="Frustum\DoubleTextureVertex.cs" />
+    <Compile Include="Globalize\LuDecomposition.cs" />
+    <Compile Include="Frustum\Matrix.cs" />
+    <Compile Include="Frustum\Matrix4d.cs" />
+    <Compile Include="Frustum\Plane2d.cs" />
+    <Compile Include="Frustum\Projection.cs" />
+    <Compile Include="Frustum\QrDecomposition.cs" />
+    <Compile Include="Frustum\Quaternion4d.cs" />
+    <Compile Include="Globalize\Units.cs" />
+    <Compile Include="Frustum\Vector3d.cs" />
+    <Compile Include="Frustum\Viewport2d.cs" />
+    <Compile Include="Core\GeoLayer.cs" />
+    <Compile Include="Core\GeoLayerList.cs" />
+    <Compile Include="Temp\SurfaceSphere.cs" />
+    <Compile Include="UI\Control\ControlMenuBar.cs" />
+    <Compile Include="UI\Control\ControlMenuButton.cs" />
+    <Compile Include="UI\Control\WidgetMenuButton.cs" />
+    <Compile Include="UI\Element\SimpleTreeNodeWidget.cs" />
+    <Compile Include="UI\Element\UpdateWidget.cs" />
+    <Compile Include="UI\Element\WidgetButton.cs" />
+    <Compile Include="UI\Element\WidgetForm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Element\WidgetPictureBox.cs" />
+    <Compile Include="UI\Element\WidgetTextBox.cs" />
+    <Compile Include="UI\Element\WidgetTextLabel.cs" />
+    <Compile Include="UI\Enums\Alignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Enums\AnchorStyles.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Interface\IInteractive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Interface\IMenu.cs" />
+    <Compile Include="UI\Interface\IWidget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Interface\IWidgetCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\WidgetCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\WidgetProgressBar.cs" />
+    <Compile Include="UI\WidgetRoot.cs" />
+    <Compile Include="UI\WidgetTreeNode.cs" />
+    <Compile Include="UI\WidgetUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuadTile\BinaryTriangleTree.cs" />
+    <Compile Include="QuadTile\NltTerrainAccessor.cs" />
+    <Compile Include="QuadTile\TerrainAccessor.cs" />
+    <Compile Include="QuadTile\TerrainDownloadRequest.cs" />
+    <Compile Include="QuadTile\TerrainTile.cs" />
+    <Compile Include="QuadTile\TerrainTileService.cs" />
+    <Compile Include="Temp\AtmosphericScatteringSphere.cs" />
+    <Compile Include="UI\WorldViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\WorldViewer.Designer.cs">
+      <DependentUpon>WorldViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frustum\ConvertDX.cs" />
+    <Compile Include="Frustum\GCSMappings.cs" />
+    <Compile Include="Globalize\ImageHelper.cs" />
+    <Compile Include="Globalize\Log.cs" />
+    <Compile Include="Globalize\NativeMethods.cs" />
+    <Compile Include="Frustum\SMath.cs" />
+    <Compile Include="Frustum\StringHash.cs" />
+    <Compile Include="Frustum\SunCalculator.cs" />
+    <Compile Include="Globalize\TimeKeeper.cs" />
+    <Compile Include="Globalize\Utility.cs" />
+    <Compile Include="Globalize\Win32Message.cs" />
+    <Compile Include="Web\DownloadQueue.cs" />
+    <Compile Include="Web\DownloadRequest.cs" />
+    <Compile Include="Web\mGeoSpatialDownloadRequest.cs" />
+    <Compile Include="Web\ProxyHelper.cs" />
+    <Compile Include="Web\WebDownload.cs" />
+    <Compile Include="Web\WebDownloadRequest.cs" />
+    <Compile Include="Web\WMSDownload.cs" />
+    <Compile Include="Core\World.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\WorldViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WorldViewer.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\flag.fx" />
+    <EmbeddedResource Include="Shaders\grayscale.fx" />
+    <EmbeddedResource Include="Shaders\SkyFromAtmosphere.fx" />
+    <EmbeddedResource Include="Shaders\SkyFromSpace.fx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
