@@ -262,10 +262,24 @@ namespace R.Earth.Plugin.Widget
                     //drawArgs.device.Viewport = viewport;
 
                     RenderCompass(drawArgs);
-
+                    int dif = 0;
+                    if (displayString.Length == 1)
+                        dif = 8;
+                    else if(displayString.Length == 2)
+                    {
+                        dif = 12;
+                    }
+                    else if (displayString.Length == 3)
+                    {
+                        dif = 15;
+                    }
+                    else if (displayString.Length == 4)
+                    {
+                        dif = 20;
+                    }
                     System.Drawing.Rectangle rect = new System.Drawing.Rectangle(
-                        AbsoluteLocation.X + viewport.Width / 2 - 7,
-                        AbsoluteLocation.Y + viewport.Height / 2,
+                        AbsoluteLocation.X + viewport.Width / 2 - dif,
+                        AbsoluteLocation.Y + viewport.Height / 2 - 4,
                         viewport.Width / 2,
                         viewport.Height / 2);
 

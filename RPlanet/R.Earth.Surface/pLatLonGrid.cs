@@ -100,7 +100,7 @@ namespace R.Earth.Plugin
             }
             bool light = drawArgs.device.RenderState.Lighting;
             drawArgs.device.RenderState.Lighting = false;
-
+ 
             ComputeGridValues(drawArgs);
 
             float offsetDegrees = (float)drawArgs.WorldCamera.TrueViewRange.Degrees / 6;
@@ -117,7 +117,20 @@ namespace R.Earth.Plugin
                 // Draw longitude lines
                 int vertexIndex = 0;
                 for (float latitude = MinVisibleLatitude; latitude <= MaxVisibleLatitude; latitude += LatitudeInterval)
-                {
+                {   //TODO JHJ 10 度线做了内插 9个点
+                    if (LongitudeInterval == 10)
+                    {
+                        for(int i = 0; i < 10 ; i++)
+                        {
+                            Vector3d p = SMath.SphericalToCartesianV3D(latitude+i, longitude, radius);
+                            lineVertices[vertexIndex].X = (float)p.X;
+                            lineVertices[vertexIndex].Y = (float)p.Y;
+                            lineVertices[vertexIndex].Z = (float)p.Z;
+                            lineVertices[vertexIndex].Color = World.Settings.LatLonLinesColor.ToArgb();
+                            vertexIndex++;
+                        }
+                        continue;
+                    }
                     Vector3d pointXyz = SMath.SphericalToCartesianV3D(latitude, longitude, radius);
                     lineVertices[vertexIndex].X = (float)pointXyz.X;
                     lineVertices[vertexIndex].Y = (float)pointXyz.Y;
@@ -125,7 +138,14 @@ namespace R.Earth.Plugin
                     lineVertices[vertexIndex].Color = World.Settings.LatLonLinesColor.ToArgb();
                     vertexIndex++;
                 }
-                drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LatitudePointCount - 1, lineVertices);
+                if (LongitudeInterval == 10)
+                {
+                    drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LatitudePointCount * 10 - 1, lineVertices);
+                }
+                else
+                {
+                    drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LatitudePointCount - 1, lineVertices);
+                }
 
                 // Draw longitude label
                 float lat = (float)(drawArgs.WorldCamera.Latitude).Degrees;
@@ -181,6 +201,24 @@ namespace R.Earth.Plugin
                 int vertexIndex = 0;
                 for (longitude = MinVisibleLongitude; longitude <= MaxVisibleLongitude; longitude += LongitudeInterval)
                 {
+                    if (LongitudeInterval == 10)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Vector3d p = SMath.SphericalToCartesianV3D(latitude, longitude + i, radius);
+                            lineVertices[vertexIndex].X = (float)p.X;
+                            lineVertices[vertexIndex].Y = (float)p.Y;
+                            lineVertices[vertexIndex].Z = (float)p.Z;
+
+                            if (latitude == 0)
+                                lineVertices[vertexIndex].Color = World.Settings.EquatorLineColor.ToArgb();
+                            else
+                                lineVertices[vertexIndex].Color = World.Settings.LatLonLinesColor.ToArgb();
+
+                            vertexIndex++;
+                        }
+                        continue;
+                    }
                     Vector3d pointXyz = SMath.SphericalToCartesianV3D(latitude, longitude, radius);
                     lineVertices[vertexIndex].X = (float)pointXyz.X;
                     lineVertices[vertexIndex].Y = (float)pointXyz.Y;
@@ -193,7 +231,15 @@ namespace R.Earth.Plugin
 
                     vertexIndex++;
                 }
-                drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LongitudePointCount - 1, lineVertices);
+                if (LongitudeInterval == 10)
+                {
+                    drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LongitudePointCount * 10 - 1, lineVertices);
+                }
+                else
+                {
+                    drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LongitudePointCount - 1, lineVertices);
+                }
+                
             }
 
             if (World.Settings.ShowTropicLines && IsEarth)
@@ -205,6 +251,7 @@ namespace R.Earth.Plugin
                 drawArgs.device.RenderState.ZBufferEnable = true;
 
             drawArgs.device.RenderState.Lighting = light;
+            
         }
 
         /// <summary>
@@ -232,6 +279,21 @@ namespace R.Earth.Plugin
             int vertexIndex = 0;
             for (float longitude = MinVisibleLongitude; longitude <= MaxVisibleLongitude; longitude = longitude + LongitudeInterval)
             {
+                if (LongitudeInterval == 10)
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Vector3d p = SMath.SphericalToCartesianV3D(latitude, longitude + i, radius);
+                        lineVertices[vertexIndex].X = (float)p.X;
+                        lineVertices[vertexIndex].Y = (float)p.Y;
+                        lineVertices[vertexIndex].Z = (float)p.Z;
+
+                        lineVertices[vertexIndex].Color = World.Settings.TropicLinesColor.ToArgb();
+
+                        vertexIndex++;
+                    }
+                    continue;
+                }
                 Vector3d pointXyz = SMath.SphericalToCartesianV3D(latitude, longitude, radius);
 
                 lineVertices[vertexIndex].X = (float)pointXyz.X;
@@ -240,7 +302,16 @@ namespace R.Earth.Plugin
                 lineVertices[vertexIndex].Color = World.Settings.TropicLinesColor.ToArgb();
                 vertexIndex++;
             }
-            drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LongitudePointCount - 1, lineVertices);
+            //TODO JHJ 10度线做了差值  9点
+            if (LongitudeInterval == 10)
+            {
+                drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LongitudePointCount * 10 - 1, lineVertices);
+            }
+            else
+            {
+                drawArgs.device.DrawUserPrimitives(PrimitiveType.LineStrip, LongitudePointCount - 1, lineVertices);
+            }
+            
 
             Vector3d t1 = SMath.SphericalToCartesianV3D(latitude,
                 drawArgs.WorldCamera.Longitude.Degrees - drawArgs.WorldCamera.TrueViewRange.Degrees * 0.3 * 0.5, radius);
@@ -293,7 +364,17 @@ namespace R.Earth.Plugin
             LatitudePointCount = (MaxVisibleLatitude - MinVisibleLatitude) / LatitudeInterval + 1;
             int vertexPointCount = Math.Max(LatitudePointCount, LongitudePointCount);
             if (lineVertices == null || vertexPointCount > lineVertices.Length)
-                lineVertices = new CustomVertex.PositionColored[Math.Max(LatitudePointCount, LongitudePointCount)];
+            {
+                if (LongitudeInterval == 10)
+                {
+                    lineVertices = new CustomVertex.PositionColored[Math.Max(LatitudePointCount, LongitudePointCount) * 10];
+                }
+                else
+                {
+                    lineVertices = new CustomVertex.PositionColored[Math.Max(LatitudePointCount, LongitudePointCount)];
+                }
+            }
+            
 
             radius = WorldRadius;
             if (drawArgs.WorldCamera.Altitude < 0.10f * WorldRadius)

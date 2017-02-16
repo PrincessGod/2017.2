@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Style>
+  <LineStyle>
+    <LineWidth>4</LineWidth>
+    <LineColor>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>128</Blue>
+    </LineColor>
+    <FillStyle>RailWay</FillStyle>
+  </LineStyle>
+  <PolygonStyle>
+    <Fill>False</Fill>
+    <FillStyle>Solid</FillStyle>
+    <PolygonColor>
+      <Red>255</Red>
+      <Green>0</Green>
+      <Blue>0</Blue>
+    </PolygonColor>
+    <Outline>False</Outline>
+    <OutlineColor>
+      <Red>0</Red>
+      <Green>0</Green>
+      <Blue>128</Blue>
+    </OutlineColor>
+  </PolygonStyle>
+</Style>
